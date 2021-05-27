@@ -1,9 +1,7 @@
-const path = require('path');
+const htmlWebpackConfig = require('./build/htmlWebpackConfig')
 
 module.exports = function(config){
-    if (config.plugins[4]) {
-        config.plugins[4].options.template = path.resolve(__dirname,'./index.html')
-    }
+    htmlWebpackConfig(config)
     return {
         devServer:{
             port: 7788

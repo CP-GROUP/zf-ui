@@ -33,6 +33,10 @@ module.exports = {
             path: 'demo-button',
             title: 'DemoButton 按钮',
           },
+          {
+            path: 'chart',
+            title: 'chart 基础图表组件',
+          },
         ],
       },
     ],
