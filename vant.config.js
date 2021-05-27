@@ -5,7 +5,7 @@ module.exports = {
       preprocessor: 'less',
     },
     site: {
-      publicPath: '/@zf-ui/components/',
+      publicPath: '/zf-ui/',
     },
   },
   site: {
