@@ -2,7 +2,7 @@
 
 ### 介绍
 
-Chart 是基于echarts的组件实例，Chart只做echarts的初始化工作，不引入其他依赖组件，如需要可以在引入组件时引入
+Chart 是基于echarts的组件实例，Chart只做echarts的初始化工作,组件直接传参初始化
 
 ### 引入
 
@@ -24,17 +24,4 @@ Vue.use(Chart);
 
 | 参数          | 说明     | 类型     | 默认值    |
 | ------------- | -------- | -------- | --------- |
-| type          | 按钮类型 | _string_ | `primary` |
-| color `1.0.0` | 按钮颜色 | _string_ | -         |
-
-### Events
-
-| 事件名 | 说明       | 回调参数            |
-| ------ | ---------- | ------------------- |
-| click  | 点击时触发 | _event: MouseEvent_ |
-
-### Slots
-
-| 名称    | 说明     |
-| ------- | -------- |
-| default | 默认插槽 |
+| option          | echarts配置 | Object | `{}` |

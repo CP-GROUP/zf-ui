@@ -6,7 +6,7 @@
 import * as echarts from 'echarts';
 
 export default {
-  name: 'Chart',
+  name: 'ZChart',
   props: {
     option: {
       type: Object,

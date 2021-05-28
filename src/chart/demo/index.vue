@@ -1,5 +1,7 @@
 <template>
-  <chart class="pie" :option="option"></chart>
+  <div class="pie">
+    <ZChart :option="option"></ZChart>
+  </div>
 </template>
 <script>
 export default {
@@ -10,7 +12,7 @@ export default {
               {
                   name: '访问来源',
                   type: 'pie',
-                  radius: ['40%', '70%'],
+                  radius: ['70%', '90%'],
                   avoidLabelOverlap: false,
                   itemStyle: {
                       borderRadius: 10,
@@ -24,7 +26,7 @@ export default {
                   emphasis: {
                       label: {
                           show: true,
-                          fontSize: '40',
+                          fontSize: '14',
                           fontWeight: 'bold'
                       }
                   },
@@ -47,6 +49,7 @@ export default {
 </script>
 <style lang="less">
 .pie{
-  height: 500px;
+  height: 200px;
+  width: 200px;
 }
 </style>
