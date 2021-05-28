@@ -6,10 +6,10 @@
 import Chart from '../chart/index.vue';
 
 export default {
+  name: 'ChartLine',
   components: {
     Chart
   },
-  name: 'ZChartLine',
   props: {
     configs: {
       type: Object,
@@ -19,29 +19,37 @@ export default {
   data() {
     return {
       option : {
+        color: [ '','#3D6FFF','#FC9A69','#3ba272'],
         xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            axisTick:{    
-              // y轴刻度线   
-              show:false
-            },
-            data: []
+          splitLine: {
+            show: false
+          },
+          axisLabel:{
+            fontSize: 15,
+            color: '#333'
+          },
+          type: 'category',
+          boundaryGap: false,
+          axisTick:{    
+            // y轴刻度线   
+            show: false
+          },
+          data: []
         },
         yAxis: {
-            type: 'value',
-            show: false,
-            axisLabel: {
-                formatter: ''
-            },
-            axisTick:{  
-              // y轴刻度线     
-              show:false
-            },
-            splitLine: {   
-              // 网格线  
-              show: false
-            }
+          type: 'value',
+          show: false,
+          axisLabel: {
+              formatter: ''
+          },
+          axisTick:{  
+            // y轴刻度线     
+            show: false
+          },
+          splitLine: {   
+            // 网格线  
+            show: false
+          }
         },
         series: []
     }
@@ -59,54 +67,74 @@ export default {
   methods: {
     convertData(){
       // x轴坐标显示值
-      this.option.xAxis.data = this.configs?.xAxis?.data||[]
+      this.option.xAxis = Object.assign({
+        splitLine: {
+          show: false
+        },
+        axisLabel:{
+          fontSize: 20,
+          color: '#333'
+        },
+        type: 'category',
+        boundaryGap: false,
+        axisTick:{    
+          // y轴刻度线   
+          show:false
+        },
+      }, this.configs.xAxis)
       
-      const xDataLen = this.option.xAxis.data.length
+      const xDataLen = this.configs.xAxis.data.length
+
+      const markerLineValue = this.configs?.markerLine?.value || 0
 
       // 标注线
       const markerLine = {
         type: 'line',
         data: [],
-        markLine: { 
-            symbol:'none',
-            label:{
-                position:'start',
-                color:'#333',
-                distance: 10
-            },
-            lineStyle: {
-                color: '#d9d9d9'
-            },
-            data: [
-              [
-                {name:'0',coord:[0,0]},
-                {coord:[xDataLen-1,0]}
-              ]
+        markLine: {
+          symbol:'none',
+          label:{
+            position:'start',
+            color: this.configs?.markerLine?.labelColor || '#333',
+            distance: 10
+          },
+          lineStyle: {
+            color: this.configs?.markerLine?.lineColor || '#999'
+          },
+          data: [
+            [
+              {
+                name: `${markerLineValue}`,
+                coord: [0,markerLineValue]
+              },
+              {
+                coord: [xDataLen-1, markerLineValue]
+              }
             ]
+          ]
         },
       }
 
       // 曲线
       const lines = (this.configs.series||[]).map(item=>{
         return {
-            name: item.name,
-            type: 'line',
-            data: item.data||[],
-            lineStyle: {
-                color: item.color,
-            },
-            itemStyle: {
-                color: item.color
-            },
+          name: item.name,
+          type: 'line',
+          data: item.data||[],
+          lineStyle: {
+            color: item.color,
+          },
+          itemStyle: {
+            color: item.color
+          },
         }
       })
 
-      // 设置
+      // 设置echart的option
       this.option.series = [
         markerLine,
         ...lines
       ]
-      
     }
   }
 };

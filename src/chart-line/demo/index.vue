@@ -1,6 +1,6 @@
 <template>
   <div class="pie">
-    <ZChartLine :configs="configs"></ZChartLine>
+    <ChartLine :configs="configs"></ChartLine>
   </div>
 </template>
 <script>
@@ -9,22 +9,46 @@ export default {
     return {
       configs: {
           xAxis: {
-            data: ['1月','2月','3月','4月','5月','6月']
+            // 必需配置
+            data: ['1月','2月','3月','4月','5月','6月'],
+            axisLabel: {
+              fontSize: 15,
+              color: '#333'
+            },
+            splitLine: {
+              show: false
+            },
           },
+          // 可以配置多组数据，不限制两组
           series:  [
             {
-                name: '曲线1',
-                type: 'line',
-                color: '#3D6FFF',
-                data: [10, 11, 13, 11, 12, 12],
+              // 非必须配置 
+              name: '曲线1',
+              // 非必须配置 
+              color: '#3D6FFF',
+                // 非必须配置，默认为[]
+              data: [10, 11, 13, 11, 12, 12],
             },
             {
-                name: '曲线二',
-                type: 'line',
-                color: '#FC9A69',
-                data: [1, -2, 2, 5, 3, 2],
+              // 非必须配置 
+              name: '曲线二',
+              // 非必须配置 
+              color: '#FC9A69',
+              // 非必须配置，默认为[]
+              data: [1, -2, 2, 5, 3, 2],
             }
-          ]
+          ],
+          // 非必须配置
+          markerLine: {
+            // 默认为0
+            value: 0,
+            // 默认显示markerLine
+            show: true,
+            // 默认#999
+            lineColor: '#999',
+            // 默认#333
+            labelColor: '#333'
+          }
       }
     }
   },
