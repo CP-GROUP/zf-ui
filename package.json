@@ -1,6 +1,6 @@
 {
   "name": "@zf-ui/components",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "lib/@zf-ui/components.js",
   "style": "lib/index.css",
@@ -20,12 +20,6 @@
   },
   "author": "",
   "license": "MIT",
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "packagetest"
-    ]
-  },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,vue}": "eslint --fix",
     "*.{vue,css,less,scss}": "stylelint --fix"
