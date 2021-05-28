@@ -37,6 +37,10 @@ module.exports = {
             path: 'chart',
             title: 'chart 基础图表组件',
           },
+          {
+            path: 'chart-line',
+            title: 'ChartLine 线性图表组件',
+          },
         ],
       },
     ],

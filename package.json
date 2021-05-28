@@ -20,15 +20,12 @@
   },
   "author": "",
   "license": "MIT",
-  "packages": [
-    "packages/*",
-    "packageTest"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "vant-cli commit-lint"
-    }
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "packagetest"
+    ]
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,vue}": "eslint --fix",

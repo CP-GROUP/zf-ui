@@ -1,11 +1,18 @@
 {
-  "npmClient": "yarn", 
+  "npmClient": "yarn",
   "useWorkspaces": true,
   "bootstrap": {
     "ignore": "component-*",
-    "npmClientArgs": ["--no-package-lock"]
+    "npmClientArgs": [
+      "--no-package-lock"
+    ]
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "packages": [
+    "packages/*",
+    "packagetest"
+  ],
+  "version": "0.0.0"
 }
