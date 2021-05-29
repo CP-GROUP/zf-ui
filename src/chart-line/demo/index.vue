@@ -51,7 +51,9 @@ export default {
             // 默认#999
             lineColor: '#999',
             // 默认#333
-            labelColor: '#333'
+            labelColor: '#333',
+            labelFontSize: 15,
+            labelDistance: 10
           }
       }
     }

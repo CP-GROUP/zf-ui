@@ -107,7 +107,8 @@ export default {
           label:{
             position:'start',
             color: this.configs?.markerLine?.labelColor || '#333',
-            distance: 10
+            distance: this.configs?.markerLine?.labelDistance || 10,
+            fontSize: this.configs?.markerLine?.labelFontSize || 15,
           },
           lineStyle: {
             color: this.configs?.markerLine?.lineColor || '#999'
