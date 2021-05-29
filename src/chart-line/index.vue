@@ -20,6 +20,9 @@ export default {
     return {
       option : {
         color: [ '','#3D6FFF','#FC9A69','#3ba272'],
+        grid: {
+          bottom: 50
+        },
         xAxis: {
           splitLine: {
             show: false
@@ -86,6 +89,10 @@ export default {
         },
         offset: 0
       }, this.configs.xAxis)
+
+      this.option.grid = Object.assign({
+        bottom: 50
+      },this.configs.grid)
       
       const xDataLen = this.configs.xAxis.data.length
 
