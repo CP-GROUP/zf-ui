@@ -81,6 +81,10 @@ export default {
           // y轴刻度线   
           show:false
         },
+        axisLine: {
+          show: false
+        },
+        offset: 0
       }, this.configs.xAxis)
       
       const xDataLen = this.configs.xAxis.data.length

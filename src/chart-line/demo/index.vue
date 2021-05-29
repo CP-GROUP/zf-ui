@@ -18,6 +18,10 @@ export default {
             splitLine: {
               show: false
             },
+            axisLine: {
+              show: false
+            },
+            offset: 10
           },
           // 可以配置多组数据，不限制两组
           series:  [
