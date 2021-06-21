@@ -8,6 +8,9 @@ export default {
   data() {
     return {
       configs: {
+          tooltip: {
+              trigger: 'axis'
+          },
           xAxis: {
             // 必需配置
             data: ['1月','2月','3月','4月','5月','6月'],

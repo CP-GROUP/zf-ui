@@ -69,6 +69,7 @@ export default {
   },
   methods: {
     convertData(){
+      this.option = Object.assign(this.option, this.configs);
       // x轴坐标显示值
       this.option.xAxis = Object.assign({
         splitLine: {
